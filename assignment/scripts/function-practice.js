@@ -55,7 +55,7 @@ console.log(isPositive(-3));
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
 function getLast(array) {
-
+  //if else statements make sure that array is not empty 
   if (array.length > 0) {
     return array[(array.length - 1)];
   }
@@ -97,30 +97,72 @@ console.log(find(3, samp));
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  //comparison changes both letters to uppercase 
+  //changes the string to Array and picks the first index 
+  if (letter.toUpperCase() == (Array.from(string)[0]).toUpperCase()) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
+console.log(isFirstLetter('a', 'Aardvard'));
+console.log(isFirstLetter('Z', 'Aardvard'));
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
-  // TODO: loop to add items
 
-  // TODO: return the sum
+  //standard for loop which iterates over every item in Array
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+
+  }
+
+
+  return sum;
 }
+
+console.log(sumAll(samp))
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
 
+//javascript is a smart language it can resize an Array once declared
+
+
+function allPositive(array) {
+  let countero = 0; //declare array to return and index
+  let arrayneg = [];//within function to limit its scope
+  for (let i = 0; i < array.length; i++) {
+    //checks if an array element is greater than zero before adding to new Array 
+    if (array[i] > 0) {
+      arrayneg[countero] = array[i];
+      countero++; //seperate index to track new Array
+    }
+  }
+  return arrayneg;
 }
-
+let allneg = [-3, -4, -5, -6, -7];
+let somepos = [-3, 3, -4, -5, , 2, -6, -7];
+console.log(allPositive(allneg));
+console.log(allPositive(somepos));
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
 
+//Create a function that takes a number as an argument, 
+//increments the number by +1 and returns the result
+
+function addOne(int) {
+  //returns the int and adds one 
+  return int + 1;
+}
+
+console.log(addOne(1));
 
 // DO NOT MODIFY
 // Used for automated testing
